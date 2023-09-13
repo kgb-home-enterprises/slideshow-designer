@@ -7,17 +7,13 @@ from google.auth.transport.requests import Request
 SCOPES = ['https://www.googleapis.com/auth/photoslibrary.readonly']
 TOKEN_PATH = 'creds/token.pickle'
 
-creds = None
-
 
 def get_credentials():
     """ Updates Credentials """
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
     # time.
-    global creds
-    if creds and creds.valid:
-        return creds
+    creds = None
     if os.path.exists(TOKEN_PATH):
         with open(TOKEN_PATH, 'rb') as token:
             creds = pickle.load(token)
