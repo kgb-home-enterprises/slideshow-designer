@@ -17,6 +17,3 @@ class GooglePhotosApiService:
         self.check_creds()
         response = self.service.albums().list().execute()
         return [album.get('title') for album in response['albums']]
-
-
-print(GooglePhotosApiService().list_album_titles())
