@@ -1,4 +1,4 @@
-import auth
+import src.google_photos.auth as auth
 
 from googleapiclient.discovery import build
 

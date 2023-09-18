@@ -1,2 +1,2 @@
-google_photos/creds/credentials.json
-google_photos/creds/token.pickle
+src/google_photos/creds/credentials.json
+src/google_photos/creds/token.pickle
