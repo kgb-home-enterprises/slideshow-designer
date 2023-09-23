@@ -8,7 +8,7 @@ import src.utils.logging as logging
 
 class GooglePhotosApiService:
     def __init__(self):
-        self.logger = logging.Logger('GooglePhotosService', logging.WARN)
+        self.logger = logging.Logger('GooglePhotosService')
         self.creds = auth.get_credentials()
         self.endpoint = 'https://photoslibrary.googleapis.com/v1'
         self.headers = {
