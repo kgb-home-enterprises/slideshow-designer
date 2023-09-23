@@ -53,12 +53,21 @@ class GooglePhotosApiService:
         self.logger.info(f'request for contents of album {album_id}')
         self.check_creds()
         payload = {
-            'albumId': album_id
+            'albumId': album_id,
+            'pageSize': 100
         }
-        response = requests.post(self.endpoint + '/mediaItems:search', data=json.dumps(payload), headers=self.headers)
-        response.raise_for_status()
+        more_content = True
+        media_items = []
+        while more_content:
+            response = requests.post(self.endpoint + '/mediaItems:search', data=json.dumps(payload), headers=self.headers)
+            response.raise_for_status()
+            media_items += response.json()['mediaItems']
+            if 'nextPageToken' in response.json():
+                payload['pageToken'] = response.json()['nextPageToken']
+            else:
+                more_content = False
         self.logger.info(f'returning album contents')
-        return response.json()['mediaItems']
+        return media_items
 
     @staticmethod
     def download_photo(base_url, file_path):
