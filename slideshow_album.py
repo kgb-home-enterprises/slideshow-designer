@@ -19,7 +19,6 @@ directory = askdirectory(title='Select Album Directory')
 if not directory:
     exit()
 directory += '/' + ALBUM_NAME
-os.makedirs(directory)
 
 # Get Google Photos Album ID
 service = GooglePhotosApiService()
@@ -32,6 +31,7 @@ except Exception:
     exit()
 
 # Download Album
+os.makedirs(directory)
 try:
     photos = service.download_album_to_folder(album_id, directory, rename_to_order=True)
     if photos is None:
