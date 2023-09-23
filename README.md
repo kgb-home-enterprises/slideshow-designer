@@ -10,5 +10,6 @@ Use this script to download an album from Google Photos in JPG format. By defaul
 The first time you run a script that accesses Google Photos you will be asked to login in your browser. After the first run your credentials will be cached for future use. When you run the script, you will be prompted with a file dialog box. Navigate to the folder where you would like to save the files and select "OK". The album will be download into it's own folder within the folder you select.
 
 NOTE: If you receive the following error while attempting to login to Google, please reach out to your OAuth app owner to grant access to your Google account.
+
 ![image](https://github.com/kgb-home-enterprises/slideshow-designer/assets/64853910/2e0539d1-6205-4e83-a109-82cf54e8ff35)
 
