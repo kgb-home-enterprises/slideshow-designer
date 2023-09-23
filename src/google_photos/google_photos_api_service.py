@@ -54,7 +54,7 @@ class GooglePhotosApiService:
         self.check_creds()
         payload = {
             'albumId': album_id,
-            'pageSize': 100
+            'pageSize': 2
         }
         more_content = True
         media_items = []
