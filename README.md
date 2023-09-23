@@ -1,6 +1,22 @@
 # slideshow-designer
 
+## Setup
+
+### Credentials
+
 Before running any scripts, contact the application owner to obtain a `credentials.json` file for connecting to the API. Alternatively, you can configure your own [OAuth Credentials](https://developers.google.com/identity/protocols/oauth2). Copy your `credentials.json` file to `src/google_photos/creds`. 
+
+### Environment
+Before running any scripts, navigate to the root directory and create the environment
+
+```pipenv install```
+
+Now make sure to activate the pip environment before running any scripts. For example:
+
+```commandline
+pipenv shell
+python slideshow_album.py
+```
 
 ## `slideshow_album.py`
 Use this script to download an album from Google Photos in JPG format. By default it will prefix the filenames to preserve the order set in Google Photos, as well as maintain any editing done in Google Photos. Before running the script, update line 12 with the name of the album you want to download from Google Photos
