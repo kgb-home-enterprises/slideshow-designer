@@ -5,7 +5,7 @@ from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
 SCOPES = ['https://www.googleapis.com/auth/photoslibrary.readonly']
-TOKEN_PATH = 'google_photos/creds/token.pickle'
+TOKEN_PATH = 'src/google_photos/creds/token.pickle'
 
 
 def get_credentials():
@@ -23,7 +23,7 @@ def get_credentials():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                'google_photos/creds/credentials.json', SCOPES)
+                'src/google_photos/creds/credentials.json', SCOPES)
             creds = flow.run_local_server()
         # Save the credentials for the next run
         with open(TOKEN_PATH, 'wb') as token:

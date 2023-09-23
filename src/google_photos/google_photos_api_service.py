@@ -54,7 +54,7 @@ class GooglePhotosApiService:
         self.check_creds()
         payload = {
             'albumId': album_id,
-            'pageSize': 2
+            'pageSize': 100
         }
         more_content = True
         media_items = []
@@ -78,12 +78,12 @@ class GooglePhotosApiService:
     def download_album_to_folder(self, album_id, path_to_folder, rename_to_order=False):
         self.logger.info(f'request to download album {album_id} to {path_to_folder}')
         album_contents = self.get_album_contents(album_id)
-        digits = math.ceil(math.log(len(album_contents), 16))
+        digits = math.ceil(math.log(len(album_contents), 10))
         ordered_photos = []
         for i, photo in enumerate(album_contents):
             filename = photo['filename']
             if rename_to_order:
-                filename = '{num:0{width}x}'.format(num=i, width=digits) + '_' + filename
+                filename = '{num:0{width}}'.format(num=i, width=digits) + '_' + filename
             self.logger.info(f'downloading {photo["filename"]} to {path_to_folder}/{filename}...')
             self.download_photo(photo['baseUrl'] + '=d', path_to_folder + '/' + filename)
             ordered_photos.append(filename)
