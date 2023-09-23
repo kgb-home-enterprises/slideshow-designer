@@ -9,13 +9,15 @@ from tkinter.filedialog import askdirectory
 from src.google_photos.google_photos_api_service import GooglePhotosApiService
 from src.utils.photos import convert_to_jpg
 
-ALBUM_NAME = 'API Testing'  # TODO: Enter your album name here
+ALBUM_NAME = ''  # TODO: Enter your album name here
 
 LOGGER = logging.Logger('Main')
 
 # Get directory to save files
 Tk().withdraw()
 directory = askdirectory(title='Select Album Directory')
+if not directory:
+    exit()
 directory += '/' + ALBUM_NAME
 os.makedirs(directory)
 
