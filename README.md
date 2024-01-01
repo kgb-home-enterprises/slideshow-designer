@@ -29,7 +29,7 @@ Use this script to download an album from Google Photos in JPG format. By defaul
 
 ```ALBUM_NAME = ''  # TODO: Enter your album name here```
 
-The first time you run a script that accesses Google Photos you will be asked to login in your browser. After the first run your credentials will be cached for future use. When you run the script, you will be prompted with a file dialog box. Navigate to the folder where you would like to save the files and select "OK". The album will be download into it's own folder within the folder you select.
+The first time you run a script that accesses Google Photos you will be asked to login in your browser. After the first run your credentials will be cached for future use. When you run the script, you will be prompted with a file dialog box. Navigate to the folder where you would like to save the files and select "OK". The album will be downloaded into it's own folder within the folder you select.
 
 NOTE: If you receive the following error while attempting to login to Google, please reach out to your OAuth app owner to grant access to your Google account.
 
