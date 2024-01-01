@@ -46,6 +46,15 @@ class GooglePhotosApiService:
             if album['title'].lower() == album_name.lower():
                 self.logger.info('returning albumId')
                 return album['id']
+
+        while 'nextPageToken' in response.json():
+            page_token = response.json()['nextPageToken']
+            response = requests.get(self.endpoint + f'/albums?pageToken={page_token}', headers=self.headers)
+            response.raise_for_status()
+            for album in response.json()['albums']:
+                if album['title'].lower() == album_name.lower():
+                    self.logger.info('returning albumId')
+                    return album['id']
         self.logger.warn(f'No albumId found for {album_name}')
         return None
 
