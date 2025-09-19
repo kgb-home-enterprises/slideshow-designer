@@ -4,7 +4,10 @@ import os.path
 from google_auth_oauthlib.flow import InstalledAppFlow
 from google.auth.transport.requests import Request
 
-SCOPES = ['https://www.googleapis.com/auth/photoslibrary.readonly']
+SCOPES = [
+    'https://www.googleapis.com/auth/photoslibrary.readonly',
+    'https://www.googleapis.com/auth/photospicker.mediaitems.readonly'
+]
 TOKEN_PATH = 'src/google_photos/creds/token.pickle'
 
 
